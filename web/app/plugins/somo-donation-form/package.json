@@ -1,0 +1,12 @@
+{
+    "name": "somo-donation-form",
+    "version": "1.0.0",
+    "description": "Donation Form Block",
+    "scripts": {
+        "build": "wp-scripts build",
+        "start": "wp-scripts start"
+    },
+    "dependencies": {
+        "@wordpress/scripts": "^26.0.0"
+    }
+}

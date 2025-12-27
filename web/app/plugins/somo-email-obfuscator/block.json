@@ -1,0 +1,22 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "somo/email-obfuscator",
+    "version": "1.0.0",
+    "title": "Email Obfuscator",
+    "category": "widgets",
+    "icon": "email",
+    "description": "Obfuscate an email address to protect it from spambots.",
+    "attributes": {
+        "email": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "supports": {
+        "html": false
+    },
+    "textdomain": "somo-email-obfuscator",
+    "editorScript": "file:./build/index.js",
+    "render": "file:./render.php"
+}

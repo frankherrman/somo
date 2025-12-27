@@ -1,0 +1,26 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "somo/donation-form",
+    "version": "1.0.0",
+    "title": "Donation Form",
+    "category": "widgets",
+    "icon": "money",
+    "description": "A donation form that sends an email.",
+    "attributes": {
+        "recipientEmail": {
+            "type": "string",
+            "default": "stichtingsomomaarssen@gmail.com"
+        },
+        "iban": {
+            "type": "string",
+            "default": "NL 32 ABNA 0533 9963 33"
+        }
+    },
+    "supports": {
+        "html": false
+    },
+    "textdomain": "somo-donation-form",
+    "editorScript": "file:./build/index.js",
+    "render": "file:./render.php"
+}
