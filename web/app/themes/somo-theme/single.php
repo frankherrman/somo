@@ -11,12 +11,14 @@ get_header();
             <header class="entry-header">
                 <div class="entry-meta"
                     style="color: #777; margin-bottom: 0.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
-                    <span class="posted-on">
-                        <?php echo get_the_date(); ?>
-                    </span>
-                    <span class="cat-links">
-                        | <?php the_category(', '); ?>
-                    </span>
+                    <?php if (get_post_type() != 'project'): ?>
+                        <span class="posted-on">
+                            <?php echo get_the_date(); ?>
+                        </span>
+                        <span class="cat-links">
+                            | <?php the_category(', '); ?>
+                        </span>
+                    <?php endif; ?>
                 </div>
                 <?php the_title('<h1 class="entry-title" style="margin-bottom: 1rem;">', '</h1>'); ?>
             </header>
@@ -32,8 +34,8 @@ get_header();
                 <?php
                 the_post_navigation(
                     array(
-                        'prev_text' => '<span class="nav-subtitle">' . esc_html__('Previous:', 'somo-theme') . '</span> <span class="nav-title">%title</span>',
-                        'next_text' => '<span class="nav-subtitle">' . esc_html__('Next:', 'somo-theme') . '</span> <span class="nav-title">%title</span>',
+                        'prev_text' => '<span class="nav-subtitle">' . esc_html__('Vorige:', 'somo-theme') . '</span> <span class="nav-title">%title</span>',
+                        'next_text' => '<span class="nav-subtitle">' . esc_html__('Volgende:', 'somo-theme') . '</span> <span class="nav-title">%title</span>',
                     )
                 );
                 ?>

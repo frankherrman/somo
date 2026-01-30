@@ -20,6 +20,13 @@ get_header();
                 <p class="hero-text"><?php echo esc_html($hero_text); ?></p>
                 <a href="<?php echo esc_url($hero_btn_url); ?>"
                     class="btn btn-hero"><?php echo esc_html($hero_btn_text); ?></a>
+                <?php
+                $hero_btn_sec_text = get_theme_mod('somo_hero_btn_sec_text', '');
+                $hero_btn_sec_url = get_theme_mod('somo_hero_btn_sec_url', '');
+                if ($hero_btn_sec_text && $hero_btn_sec_url): ?>
+                    <a href="<?php echo esc_url($hero_btn_sec_url); ?>"
+                        class="btn btn-secondary"><?php echo esc_html($hero_btn_sec_text); ?></a>
+                <?php endif; ?>
             </div>
         </div>
     </section>

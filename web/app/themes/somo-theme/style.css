@@ -10,6 +10,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: somo-theme
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Outfit:wght@700;800&display=swap');
+
 :root {
     /* Brand Colors */
     --color-primary: #d44206;
@@ -27,6 +29,7 @@ Text Domain: somo-theme
 
     /* Typography */
     --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-family-headers: 'Outfit', sans-serif;
     --font-family-serif: 'Merriweather', serif;
 
     /* Spacing */
@@ -58,19 +61,30 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+body.admin-bar .site-header {
+    top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    body.admin-bar .site-header {
+        top: 46px;
+    }
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-family-sans);
+    font-family: var(--font-family-headers);
     font-weight: 800;
     /* Extra bold */
     line-height: 1.1;
     margin-bottom: var(--spacing-sm);
     color: var(--color-text-main);
     letter-spacing: -0.01em;
+    margin-top: 0;
 }
 
 h1 {
@@ -162,7 +176,21 @@ tr:hover {
     transition: background-color 0.2s, transform 0.2s;
     border: none;
     cursor: pointer;
+    cursor: pointer;
     font-size: 1rem;
+    border-radius: 12px;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #ffffff;
+    color: var(--color-primary);
+    transform: translateY(-2px);
 }
 
 .btn:hover {
@@ -208,11 +236,34 @@ tr:hover {
 .main-navigation a {
     color: var(--color-text-main);
     font-weight: 700;
-    font-size: 1.1rem;
-    text-transform: uppercase;
+    font-size: 1rem;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.main-navigation a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease-in-out;
 }
 
 .main-navigation a:hover {
+    color: var(--color-primary);
+}
+
+.main-navigation a:hover::after,
+.main-navigation .current-menu-item>a::after,
+.main-navigation .current_page_item>a::after {
+    width: 100%;
+}
+
+.main-navigation .current-menu-item>a,
+.main-navigation .current_page_item>a {
     color: var(--color-primary);
 }
 
@@ -255,8 +306,8 @@ tr:hover {
 
 .btn-hero {
     background-color: var(--color-primary);
-    font-size: 1.2rem;
     padding: 20px 48px;
+    margin-right: var(--spacing-sm);
 }
 
 /* Impact Section - Blocky Design */
@@ -274,10 +325,8 @@ tr:hover {
 .impact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 0;
-    /* No gap, connected blocks */
-    background: var(--color-border);
-    border: 1px solid var(--color-border);
+    gap: var(--spacing-md);
+    /* Gaps for rounded blocks */
 }
 
 .impact-card {
@@ -286,10 +335,10 @@ tr:hover {
     text-align: center;
     transition: all 0.3s ease;
     border: 1px solid var(--color-border);
-    margin: -1px;
     /* Overlap borders */
     position: relative;
     z-index: 1;
+    border-radius: 12px;
 }
 
 .impact-card:hover {
@@ -365,6 +414,8 @@ tr:hover {
     height: 100%;
     display: flex;
     flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .news-card:hover {
@@ -516,6 +567,8 @@ tr:hover {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .project-card:hover {
@@ -575,8 +628,8 @@ tr:hover {
 
 /* Page CTA Bar */
 .page-cta-bar {
-    background-color: var(--color-light-gray);
-    padding: var(--spacing-lg) 0;
+    background-color: #fff5eb;
+    padding: 3rem 0;
     margin-top: var(--spacing-xl);
     border-top: 1px solid var(--color-border);
     text-align: center;

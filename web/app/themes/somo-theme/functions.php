@@ -162,6 +162,29 @@ function somo_customize_register($wp_customize)
         'type' => 'text',
     ));
 
+    // Secondary Hero Button Text
+    $wp_customize->add_setting('somo_hero_btn_sec_text', array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('somo_hero_btn_sec_text', array(
+        'label' => __('Secondary Button Text (Optional)', 'somo-theme'),
+        'description' => __('Leave empty to hide.', 'somo-theme'),
+        'section' => 'somo_hero_section',
+        'type' => 'text',
+    ));
+
+    // Secondary Hero Button Link
+    $wp_customize->add_setting('somo_hero_btn_sec_url', array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
+    $wp_customize->add_control('somo_hero_btn_sec_url', array(
+        'label' => __('Secondary Button URL', 'somo-theme'),
+        'section' => 'somo_hero_section',
+        'type' => 'text',
+    ));
+
     // Hero Background Image
     $wp_customize->add_setting('somo_hero_image', array(
         'default' => 'https://source.unsplash.com/1600x900/?namibia,desert',
