@@ -50,7 +50,7 @@
             </nav><!-- .main-navigation -->
 
             <div class="header-actions">
-                <a href="/doneren" class="btn">Doneren</a>
+                <a href="/doneren" class="btn">Doneer</a>
             </div>
         </div>
     </header>

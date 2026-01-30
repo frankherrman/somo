@@ -159,7 +159,7 @@ tr:hover {
 
 .container-readable {
     max-width: 800px;
-    padding-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
     padding-bottom: var(--spacing-xl);
 }
 
