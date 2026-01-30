@@ -28,7 +28,15 @@
                 ?>
             </div><!-- .site-branding -->
 
-            <nav class="main-navigation">
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                <span class="box">
+                    <span class="bar top"></span>
+                    <span class="bar mid"></span>
+                    <span class="bar bot"></span>
+                </span>
+            </button>
+
+            <nav class="main-navigation" id="site-navigation">
                 <?php
                 wp_nav_menu(
                     array(

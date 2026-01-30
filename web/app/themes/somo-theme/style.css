@@ -201,6 +201,65 @@ tr:hover {
     transform: translateY(-2px);
 }
 
+/* Mobile Menu Toggle - Hidden by default */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 2000;
+}
+
+.menu-toggle:focus {
+    outline: none;
+}
+
+/* Hamburger Animation */
+.menu-toggle .box {
+    width: 30px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text-main);
+    position: absolute;
+    left: 0;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.menu-toggle .top {
+    top: 0;
+}
+
+.menu-toggle .mid {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-toggle .bot {
+    bottom: 0;
+}
+
+/* Active Hamburger State */
+.menu-toggle.is-active .top {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.menu-toggle.is-active .mid {
+    opacity: 0;
+}
+
+.menu-toggle.is-active .bot {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+
 /* Header */
 .site-header {
     height: var(--header-height);
@@ -653,7 +712,47 @@ tr:hover {
         font-size: 2.5rem;
     }
 
+    /* Mobile Menu Logic */
+    .menu-toggle {
+        display: block;
+    }
+
     .main-navigation {
-        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #ffffff;
+        z-index: 1500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(100%);
+        transition: all 0.4s ease-in-out;
+    }
+
+    .main-navigation.toggled {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+
+    .main-navigation ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .main-navigation a {
+        font-size: 1.5rem;
+        color: var(--color-text-main);
+    }
+
+    /* Prevent scroll when menu is open */
+    body.menu-open {
+        overflow: hidden;
     }
 }
