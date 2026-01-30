@@ -755,4 +755,8 @@ tr:hover {
     body.menu-open {
         overflow: hidden;
     }
+
+    .wp-block-buttons>.wp-block-button.wp-block-button__width-25 {
+        width: auto !important;
+    }
 }
